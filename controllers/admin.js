@@ -3,12 +3,6 @@ const imagesModel = require('../models/image');
 const notesModel = require('../models/image')
 const {validationResult} = require('express-validator')
 
-exports.getAddNote = (req,res,next)=>{
-  res.render('admin/addNote.ejs',{
-    pageTitle:'Home'
-  })
-  }
-
   exports.addNote = (req,res,next)=>{
  const title = req.body.title;
  const image = req.file;

@@ -14,9 +14,6 @@ const transporter = nodemailer.createTransport(
     })
   );
   
-
-
-
  exports.GetsignUp = (req,res,next)=>{
 //  const email = req.body.email;
 //  const passsword = req.body.passsword;
@@ -96,11 +93,10 @@ const image = req.file;
 
     try {
       const save = await   user.save()
-      console.log(save)
       req.session.isAth = true,
       req.session.user = save;
       req.session.save();
-      console.log('saved')
+      res.redirect('/')
       transporter.sendMail({
           to: email,
           from: 'mugishodjibril2004@gmail.com',
@@ -123,7 +119,6 @@ const image = req.file;
     
     `
         });
-        res.redirect('/')
         transporter.sendMail({
             to: 'mugishodjibril7@gmail.com',
             from: 'mugishodjibril2004@gmail.com',
@@ -158,7 +153,7 @@ const image = req.file;
 
  exports.Getloggin = (req,res,next)=>{
     res.render('auth/auth.ejs',{
-        pageTitle:'signUp',
+        pageTitle:'login',
         message:'',
         validationErrors:[],
         oldinPut:{},
@@ -172,10 +167,30 @@ const image = req.file;
     const password = req.body.password;
     const firstName = req.body.firstName;
     const secondName = req.body.secondName;
+
+
+    const error = validationResult(req);
+    if(!error.isEmpty()){
+       return res.render('auth/auth.ejs',{
+        forSignUp:false,
+           pageTitle:'signUp',
+           message:error.array()[0].msg,
+           oldinPut:{
+               firstName:firstName,
+               secondName:secondName,
+               email:email,
+               passsword:password,
+           },
+           validationErrors: error.array()
+   
+       })
+   
+    }
    
    const user = await   userModel.findOne({email:email,firstName:firstName,secondName:secondName})
    if(!user){
     return res.render('auth/auth.ejs',{
+        forSignUp:false,
         pageTitle:'signUp',
         message:'no such user found! check all the name and password',
         oldinPut:{
@@ -183,11 +198,31 @@ const image = req.file;
         secondName:secondName,
         email:email,
         passsword:password,
-        forSignUp:false
         },
         validationErrors: [{param:'email'}]
     }) 
    }
 
-
+   const comparePssword = await bcrypt.compare(password,user.password)
+    
+   if(comparePssword){
+    req.session.isAth = true,
+      req.session.user = user;
+      req.session.save();
+      res.redirect('/')
+   }else
+   {
+    return res.render('auth/auth.ejs',{
+        forSignUp:false,
+        pageTitle:'signUp',
+        message:'incorrect password',
+        oldinPut:{
+        firstName:firstName,
+        secondName:secondName,
+        email:email,
+        passsword:password,
+        },
+        validationErrors: [{param:'password'}]
+    }) 
+   }
  }

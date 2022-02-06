@@ -47,6 +47,14 @@ app.use(session({
 app.set('views engine', 'ejs');
 app.set('views','views')
 
+//put the user in all request 
+
+app.use((req,res,next)=>{
+const sessionId = req.session.user;
+// console.log(sessionId, 'frm user session');
+next();
+})
+
 
 app.use((error,req,res,next)=>{
    const errorMessage = error.message || 'an error occured while saving the image';

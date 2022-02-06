@@ -4,7 +4,7 @@ const controllers  = require('../controllers/admin');
 const {check,body} = require('express-validator/check')
 
 
-router.get('/addNote',controllers.getAddNote)
+// router.get('/addNote',controllers.getAddNote)
 router.post('/post_images'
 ,controllers.addNote)
 module.exports = router;
