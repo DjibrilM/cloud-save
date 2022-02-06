@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= pageTitle %></title>
+    <script src="/js/main.js" defer></script>
+    <script src="/js/upload.js" defer></script>
+    <link rel="stylesheet" href="css/home.css">
+    <link rel="stylesheet" href="css/upload.css">
+</head>
+<body>
+
+    <section class="backdrop">
+    </section>
+
+    <section class="loading_backdrop">
+        <div class="loader">Loading...</div>
+      <h1> loading.. </h1> 
+    </section>
+
+    <!-- upload model -->
+ 
+    <div class="upload_box"> 
+
+
+        <div class="image_container">
+            <input type="file" class="image_file" name="image" hidden>
+            <img  alt="" class="img__">
+            <img src="images/camera.svg" alt="" class="file_picker">
+        </div>
+
+
+
+        <div class="upload_btn_and_inpu_tex-container">
+        <input type="text" placeholder="Image Title:" class="image_name">
+        <button class="upload_btn"> <img src="images/upload.svg" alt=""> Upload</button>
+        </div>
+    </div>
+
+
+    <!--  -->
+
+
+ <section class="loading_page">
+    <h1 class="loading_logo">My NOte</h1>
+</section>
+
+
+
+
+
+
+
+ <main>
+    <div class="menu_sercle">
+
+        <div class="toogle_place">
+
+        <div class="toggle-container">
+
+            <div class="toggle_identification">
+               <h4> ToogleToDarkMode </h4>
+            </div>
+
+            <div class="toggle_box">
+               <img src="images/sun.svg" alt="" class="image_toggle"  id="light">
+               <img src="/images/moon.svg" alt="" class="image_toggle image_toggl2" id="dark">
+                <div class="toggle_btn">
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+     <div class="menu_btn_container">   <img src="/images/align-right.svg" alt="" class="menu_btn"> </div>
+
+
+    </div>
+
+ <header class="main_header">
+
+     <div class="header_container">
+         <form action="search_note" method="POST">
+             <div class="search-input_container">
+            <button> <img src="/images/search_two.svg" alt=""> </button>
+             <input type="text" class="search_input" placeholder="Search A note By It Title " name="search">
+            </div>
+         </form>
+     </div>
+
+ </header>
+
+
+
+<% if(data.length > 0) { %>
+
+    
+
+    <section class="image_container__">
+
+        <% for(const element of data  ) { %>
+
+        <div class="image_box">
+            <img src="/<%= element.imagepath  %>" alt="" class="image_loaded">
+            <div class="drop_box">
+                <img src="images/trash-alt.svg" alt="">
+            </div>
+        </div>
+
+        <% } %>
+
+        </section>
+
+
+
+
+    <% }else  {  %>
+ 
+   <h1 class="no_list">List Empty</h1>
+
+     <div class="no_list_box">
+     <img src="/images/download (8).svg" alt="">
+     </div>
+  
+
+ <% } %>
+
+ <div class="add_btn">
+    <img src="/images/plus.svg" alt="">
+</div>
+
+</main>
+
+
+</body>
+</html>

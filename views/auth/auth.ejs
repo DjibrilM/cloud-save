@@ -1,0 +1,86 @@
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+     <meta charset="UTF-8">
+     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title><%= pageTitle %></title>
+     <link rel="stylesheet" href="css/auth.css">
+     <script src="js/auth.js" defer></script>
+ </head>
+ <body>
+     
+
+
+    <section class="back_drop">
+    </section>
+
+    <section class="back_drop_2">
+    </section>
+
+    <section class="mini_cercle">
+    </section>
+    <div class="ath-cart  ">
+
+      <% if(forSignUp) { %>  <div class="user_status">
+            <img   alt="" class="choosed_image">
+            <div class="upload_btn">
+                <img src="images/camera.svg" alt="" class="customerBtn">
+            </div>
+        </div>
+
+        <% } %>
+
+        <div class="<%= forSignUp===true?'/signup':'loggin' %>">
+
+        <form action="<%= forSignUp===true?'/signup':'/loggin' %> " method="post" enctype="multipart/form-data">
+
+            <input type="file" class="input_file"  hidden accept="image/*" name="image">
+
+            <div class="form-control name">
+                <input type="text" placeholder="First Name:" class="first_name <%= validationErrors.find(e => e.param === 'firstName') ? 'invalid' : '' %>" name="firstName" value="<% if(oldinPut){ %><%= oldinPut.firstName  %><% } %>">
+                <input type="text" placeholder="Second Name:" class="secondName  <%= validationErrors.find(e => e.param === 'secondName') ? 'invalid' : '' %>" name="secondName" value="<% if(oldinPut) { %><%= oldinPut.secondName  %><% } %>" >
+            </div>
+            <div class="form-control">
+                <input type="text" placeholder="Email:" class="email  <%= validationErrors.find(e => e.param === 'email') ? 'invalid' : '' %>" name="email" value="<%if(oldinPut) { %><%= oldinPut.email  %><% } %>">
+            </div>
+            <div class="form-control">
+                <input type="Password" placeholder="password:" class="password  <%= validationErrors.find(e => e.param === 'password') ? 'invalid' : '' %>" name="password"  value="" >
+            </div>
+         
+            <div class="form-control name">
+                <input type="text" placeholder="secret question:" class="secret_question" name="secretQuestion" value="<% if(oldinPut){ %><%= oldinPut.question  %><% } %>">
+                <input type="text" placeholder="secret answer:" class="secret_answer" name="secretAnswer" value="<% if(oldinPut){ %><%= oldinPut.answer  %><% } %>">
+            </div>
+            
+             <div class="form-control">
+             <button class="sign_btn" >Sign Up</button>
+            </div>
+          </form>
+        </div>
+
+          <% if(message.length > 2) { %>
+
+       <p class="errors"><%= message  %>!</p>
+
+       <% } %>
+     
+
+    </div>
+
+    <div class="worning">
+    <div class="warning_img">   <img src="report_problem_black_24dp.svg" alt="" > </div> 
+    <h3>Read before You fill !</h3>
+
+    <p>
+        the following field is responsable for the reseting of your password the data you provide will help you to change the password in case you forget it a good example can be this one "what is my favorite movie " then you give an answer like "spider man" whatever you want you can pick any question you need , but make sure that you don't forget it , and if you forget try to check in your email for every sign up we send the question and answer to the email provided during signing up 
+    </p>
+    </div>
+
+  
+
+
+
+
+ </body>
+ </html>

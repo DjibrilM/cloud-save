@@ -1,0 +1,123 @@
+ *{
+     margin: 0px;
+     padding: 0px;
+ }
+
+ ::-webkit-scrollbar
+ {
+     width: 8px;
+     background-color: transparent;
+ }
+
+ ::-webkit-scrollbar-thumb
+ {
+     background-color: hsl(4, 100%, 73%, 0.5);
+     width: 10px;
+     border-radius: 100px;
+ }
+
+
+ body
+ {
+     box-sizing: border-box;
+     background-color: #f6f6f9;
+     overflow-x: hidden;
+ }
+
+
+ .header_container
+ {
+width: 90%;
+margin: auto;
+height: 100%;
+ }
+
+ .note_title
+ {
+     margin-top: 1.5rem;
+display: flex;
+width: 100%;
+gap: 1rem;
+flex-direction: column;
+ }
+
+ .note_title img
+ {
+     width: 20px;
+     cursor: pointer;
+ }
+
+ .note_title input
+ {
+width: 500px;
+font-size: 20px;
+font-weight: bold;
+font-family: ubuntu;
+border: none;
+background-color: transparent;
+outline: none;
+color: #333;
+ }
+
+ .note_body
+ {
+margin-top: 20px;
+ }
+
+
+
+ .note_body
+ {
+     height: 100vh;
+ }
+ .note_body textarea
+ {
+     width: 100%;
+     height: 100%;
+     font-family: ubuntu;
+    outline: none;
+    border: none;
+    line-height: 1.5rem;
+    font-size: 19px;
+    padding-top: 10px;
+    text-align: left;
+    border-radius: 10px;
+    box-shadow:inset 0 0 2px #999;
+    padding-left: 10;
+    padding-bottom: 10px;
+ }
+ .save_note
+ {
+width: 50px;
+height: 50px;
+border-radius: 100px;
+padding: 10px;
+display: flex;
+justify-content: center;
+align-items: center;
+position: fixed;
+bottom: 2rem;
+right: 2rem;
+cursor: pointer;
+border: none;
+background-color: hsl(4, 100%, 73%);
+animation: bounce 1s infinite;
+ }
+
+.save_note img
+{
+width: 25px;
+background-color: transparent;
+}
+
+@keyframes bounce{
+    0%{
+        transform: scale(1);
+    }
+    50%{
+       transform: scale(1.2);
+   }
+   0%{
+       transform: scale(1);
+   }
+   }

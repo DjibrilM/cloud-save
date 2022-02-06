@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= pageTitle %></title>
+    <link rel="stylesheet" href="css/home.css">
+</head>
+<body>
+
+ <a href="/">  <img src="images/arrow-left.svg" alt="" class="backarrow"></a> 
+
+ 
+ 
+
+<% if(notes.length > 0)  { %>
+
+    
+
+
+    <div class="note forSearch">
+        <h1><%= notes[0].title  %></h1>
+        <div class="parContainer">
+        <p><%= notes[0].paragrapth %></p>
+        <p class="note_date"><%= notes[0].Date %></p>
+       </div>
+
+   <%  } else { %>
+    <div class="xvmx">
+    <h1 class="no_list">No Item Found   </h1> <h1 class="emoji">🥺</h1>   
+</div>
+
+    <div class="no_list_box">
+    <img src="/images/download (8).svg" alt="">
+    </div> 
+    <% } %>
+
+    
+</body>
+</html>

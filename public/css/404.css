@@ -1,0 +1,25 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    text-align: center;
+} 
+
+body
+{
+    box-sizing: border-box;
+    font-family: 'ubuntu ';
+    color: rgb(16, 16, 46);
+}
+.container
+{
+margin: auto;
+max-width: 400px;
+}
+.container img
+{
+width: 100%;
+}
+.error_num
+{
+    font-size: 70px;
+}
