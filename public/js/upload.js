@@ -7,6 +7,8 @@ const Add_btn = document.querySelector('.add_btn')
 const backdrop = document.querySelector('.backdrop');
 const upload_model = document.querySelector('.upload_box');
 const loading_model  = document.querySelector('.loading_backdrop')
+const scrolls = document.querySelector('.scroll')
+const imageConteiner = document.querySelector('.image_container__')
 const bodyEl = document.body
 uploadBtn.disabled = true
 
@@ -28,7 +30,7 @@ imageInput.addEventListener("change"
    const result = reader.result;
 //    console.log(result)
    selected_img.src =  result;
-   if(imageNameInput.value.length > 1 &&  selected_img.src.length > 1){
+   if(imageNameInput.value.length > 1 &&  selected_img.src.length > 26){
     uploadBtn.disabled = false
 }else
 {
@@ -52,6 +54,7 @@ imageNameInput.addEventListener('keyup',function(){
 
 //toggle model
 Add_btn.addEventListener('click',()=>{
+    scrolls.scrollIntoView({behavior:'smooth'}) 
     bodyEl.style.overflow = 'hidden'
     backdrop.classList.add('visible');
     setTimeout(() => {
@@ -71,17 +74,27 @@ const disableModels = ()=>{
     upload_model.classList.remove('visible')
     backdrop.style.opacity = '0'   
 }
-
 backdrop.addEventListener('click',()=>{
 disableModels()
 })
 
 
+const appendImge = (src)=>{
+const imageEl = document.createElement('div');
+imageEl.className = 'image_box';
+imageEl.innerHTML = `
+
+            <img src="/${src}" alt="" class="image_loaded">
+            <div class="drop_box">
+                <img src="images/trash-alt.svg" alt="">
+            </div>
+`
+imageConteiner.append(imageEl)
+}
+
 
 //send the data to the server
 const sendImg = ()=>{
-
-
 
 const title = imageNameInput.value;
 const image = imageInput.files[0];
@@ -100,7 +113,7 @@ return result.json()
    setTimeout(() => {
     loading_model.style.display = 'none';   
    }, 1000);
-   console.log(data)
+   appendImge(data.data.imagepath)
 })
 .catch(err=>{
  console.log(err)
