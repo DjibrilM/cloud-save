@@ -15,7 +15,11 @@ IdentTitle:{
 },
 crationDate:{
     type:String,
+}, creator:{
+type:mongoose.Types.ObjectId,
+required:true
 }
+
 },
 
 )

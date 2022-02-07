@@ -57,7 +57,12 @@ background-size: 100%;
     transition: 0.5s;
     color: #fff;
     transform: translatey(10rem);
-    opacity: 0;
+    /* position: fixed;
+    bottom: -100px; */
+ z-index: 1000;
+/* background: black;
+height: 100vh;
+width: 100%; */
  }
 
  .header_container

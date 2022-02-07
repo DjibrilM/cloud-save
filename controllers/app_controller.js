@@ -3,7 +3,7 @@ exports.get404 = (req,res,next)=>{
   res.render('application/404.ejs')
 }
 exports.getHome = (req,res,next)=>{
-  imageModel.find()
+  imageModel.find({creator:req.session.user._id})
   .then(images=>{
    console.log(images)
    res.render('application/index.ejs',

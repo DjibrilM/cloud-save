@@ -114,6 +114,7 @@ return result.json()
     loading_model.style.display = 'none';   
    }, 1000);
    appendImge(data.data.imagepath)
+   
 })
 .catch(err=>{
  console.log(err)

@@ -19,7 +19,8 @@ const {validationResult} = require('express-validator')
    {
      title:title,
      imagepath:image.path,
-     IdentTitle:title.toUpperCase()
+     IdentTitle:title.toUpperCase(),
+     creator:req.session.user._id
     })
   return imageMdl.save()
  }).then(result=>{
