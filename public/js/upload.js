@@ -9,6 +9,7 @@ const upload_model = document.querySelector('.upload_box');
 const loading_model  = document.querySelector('.loading_backdrop')
 const scrolls = document.querySelector('.scroll')
 const imageConteiner = document.querySelector('.image_container__')
+const not_file_img = document.querySelector('.no__lists')
 const bodyEl = document.body
 uploadBtn.disabled = true
 
@@ -113,6 +114,10 @@ return result.json()
    setTimeout(() => {
     loading_model.style.display = 'none';   
    }, 1000);
+   if(not_file_img){
+    console.log(not_file_img);
+    not_file_img.style.display = 'none';
+   }
    appendImge(data.data.imagepath)
    
 })

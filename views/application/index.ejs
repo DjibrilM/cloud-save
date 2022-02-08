@@ -30,7 +30,7 @@
 
 
         <div class="image_container">
-            <input type="file" class="image_file" name="image" hidden>
+            <input type="file" class="image_file" name="image" hidden accept="image/*">
             <img  alt="" class="img__">
             <img src="images/camera.svg" alt="" class="file_picker">
         </div>
@@ -99,12 +99,13 @@
 
  <% if(data.length < 1) { %>
  
+    <div class="no__lists">
     <h1 class="no_list">List Empty</h1>
  
       <div class="no_list_box">
       <img src="/images/download (8).svg" alt="">
       </div>
-   
+    </div>
  
   <% } %>
 
