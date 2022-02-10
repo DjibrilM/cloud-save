@@ -81,10 +81,17 @@
 
      <div class="menu_btn_container">   <img src="/images/align-right.svg" alt="" class="menu_btn"> </div>
 
-
     </div>
 
+    <% if(profile.length > 5) { %>
  <header class="main_header">
+
+     <div class="profile">    
+         <a href="/get_profile/<%= __id %>">  
+<img src="/<%= profile%>" alt="">
+        </a>  
+     </div>
+     <%  } %>
 
      <div class="header_container">
          <form action="search_note" method="POST">

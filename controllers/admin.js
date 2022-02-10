@@ -1,5 +1,5 @@
 const imagesModel = require('../models/image');
-
+const userModel =  require('../models/users')
 const notesModel = require('../models/image')
 const {validationResult} = require('express-validator')
 
@@ -31,9 +31,25 @@ const {validationResult} = require('express-validator')
    }
    next(err)
  })
-
-
-
-
   }
+
+  exports.getProfile = async (req,res,next)=>{
+    const mondodb = require('mongodb')
+    const userId = req.params.userId;
+    userModel.findOne({_id:userId})
+    .then(user=>{
+      if(!user){
+      return res.redirect('/404')
+      }
+      //render the profile  page  
+      res.render('admin/profile.ejs',{
+        userData:user
+      })
+    }).catch(err=>{
+      console.log(err)
+      res.redirect('/404')
+    })
+  }
+
+
   

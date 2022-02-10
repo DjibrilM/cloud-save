@@ -1,6 +1,6 @@
 exports.isAuth = (req,res,next)=>{
     if(req.session.isAth !== true){
-     return res.redirect('/loggin')
+     return res.redirect('/404')
     }else{
         next();
     }

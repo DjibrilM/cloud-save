@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= userData.firstName  %></title>
+    <link rel="stylesheet" href="/css/profile.css">
+   
+</head>
+<body>
+    
+
+    <section class="showcase">
+        
+       <a href="/">
+           <div class="back_arrow">
+            <img src="/images/arrow_back_ios_black_24dp.svg" alt="">
+        </div>
+    </a>
+
+    <div class="profile_card"> 
+        <div class="profile_img">
+         <img src="/<%= userData.status %>" alt="">
+        </div>
+
+    <div class="profile_data">
+        <div class="profile-contoller">
+            <p><%= userData.firstName  %></p>
+            <p><%= userData.secondName %></p>
+        </div>
+        <div class="profile-contoller name">
+            <p>
+                <%= userData.email %>
+            </p>
+        </div>
+     
+    </div>
+
+    <button class="Edit">Edit Account</button>
+        </div>
+
+    </section>
+
+    
+
+
+
+</body>
+</html> 

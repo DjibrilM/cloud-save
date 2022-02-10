@@ -26,11 +26,11 @@ window.addEventListener('load', ()=>{
             body.style.overflow = 'auto';
             // document.querySelector('a').style.color = '#eee';
         })
-    }, 1000);
+    }, 0);
 
 
 
-    //seting the modeColor 
+    //setting the modeColor 
     const takeTheModeChoosed = JSON.parse(localStorage.getItem('Mode'));
     if(takeTheModeChoosed !== null){
     body.classList.add(takeTheModeChoosed[0]);

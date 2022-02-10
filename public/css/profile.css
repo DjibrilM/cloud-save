@@ -1,0 +1,94 @@
+*{
+    margin: 0px;
+    padding: 0px;
+} 
+body{
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+.showcase
+{
+display: flex;
+align-items: center;
+justify-content: center;
+width: 100%;
+height: 500px;
+background:rgb(189, 66, 111, 0.5);
+z-index: 11;
+position: relative;
+}
+.profile_card
+{
+border-radius: 3px;
+position: relative;
+top: 140px;
+width: 500px;
+height: 680px;
+background: #fff;
+box-shadow: 0 0 3vw rgb(0,0,0, 0.3);
+z-index: 2;
+}
+.profile_img
+{
+width: 180px;
+height: 180px;
+margin:20px auto;
+}
+.profile_img img
+{
+background-color: rgb(0,0,0, 0.1);
+border: 2px solid rgb(189, 66, 111, 0.5);
+padding: 03px;
+width: 100%;
+border-radius: 100%;
+height: 100%;
+}
+.profile-contoller
+{
+width: 90%;
+margin: auto;
+display: flex;
+gap: 20px;
+}
+.profile-contoller p
+{   width: 100%;
+    color: #100c24;
+    padding: 10px 20px;
+    background-color: rgb(0,0,0, 0.1);
+    margin: 10px 0px;
+    border-radius: 5px;
+    font-family: 'ubuntu';
+}
+.Edit
+{
+padding: 15px 20px;
+border-radius: 5px;
+font-family: 'ubuntu';
+color: #fff;
+text-align: center;
+width: 200px;
+margin:50px 30%;
+cursor: pointer;
+border: none;
+background-color:  rgb(189, 66, 111, 0.3);
+}
+
+.back_arrow
+{
+width:40;
+display: flex;
+align-items: center;
+justify-content: center;
+padding: 10px 10px;
+left: 20px;
+top: 30px;
+border-radius: 100%;
+border: 1px solid white;
+height: 20px;
+position: absolute;
+background-color:  rgb(189, 66, 111, 0.3);
+}
+.back_arrow img
+{
+width: 20px;
+}

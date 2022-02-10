@@ -2,18 +2,15 @@ const express = require('express');
 const router = express.Router();
 const controllers  = require('../controllers/admin');
 const {check,body} = require('express-validator/check')
-
+const isAuth = require('../middleware/is-auth')
 
 // router.get('/addNote',controllers.getAddNote)
 router.post('/post_images'
-,controllers.addNote)
+, isAuth.isAuth, controllers.addNote)
 module.exports = router;
 
 
-// ,[
-//     body('title','invalid title title mustbe 5 characters long')
-//     .isLength({min:5})
-//     .isAlphanumeric(),
-//     body('content')
-//     .isAlphanumeric()
-//     ]
+
+router.get('/get_profile/:userId'
+, isAuth.isAuth, controllers.getProfile)
+module.exports = router;

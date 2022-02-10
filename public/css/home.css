@@ -30,8 +30,8 @@ padding: 0px;
  {
 width: 100%;
 height: 100vh;
-background-color: #fff;
 transition: 1s;
+/* display: none; */
 z-index: 10000;
  }
 
@@ -524,4 +524,26 @@ box-shadow: 0 0 3px #000
 .drop_box img
 {
 width: 90%;
+}
+/* 
+profil  */
+
+.profile
+{
+cursor: pointer;
+top: 10px;
+left: 10px;
+position: absolute;
+width: 50px;
+height: 50px;
+display: flex;
+}
+.profile img
+{
+width: 100%;
+height: 100%;
+border-radius: 50%;
+padding: 2px;
+border: 2px solid #666;
+background-color: rgb(0, 0, 0, 0.5);
 }
