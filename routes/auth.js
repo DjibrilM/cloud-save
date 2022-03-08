@@ -21,13 +21,7 @@ router.post('/signup',
 ],
 isAuth.isAuth__, controllers.postSignUp)
 
-
-
-
-
 //loggin 
-
-
 router.get('/loggin', isAuth.isAuth__, controllers.Getloggin)
 
 router.post('/loggin',
@@ -40,6 +34,7 @@ router.post('/loggin',
  body('secondName', 'invalid second name').isLength({min:2})
 ],
 isAuth.isAuth__, controllers.psotLoggin)
+
 
 
 module.exports = router;

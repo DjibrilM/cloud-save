@@ -9,9 +9,6 @@
     <% if(forSignUp){ %> <script src="js/auth.js" defer></script>  <% } else {  %>   <script src="js/logg_in.js" defer></script> <% } %>
  </head> 
  <body>
-     
-
-
     <section class="back_drop">
     </section>
 
@@ -30,6 +27,13 @@
         </div>
 
         <% } %>
+
+
+        <% if(!forSignUp) { %>
+            <a href="/signup" class="authRedirect">Don't have an account yet ?</a>
+            <a href="djibril" class="authRedirect2">Forget password  ?</a>
+            <% } %>
+         
 
         <div class="<%= forSignUp===true?'/signup':'loggin' %>">
 
@@ -54,6 +58,8 @@
                 <input type="text" placeholder="secret answer:" class="secret_answer" name="secretAnswer" value="<% if(oldinPut){ %><%= oldinPut.answer  %><% } %>">
             </div>
             <% } %>
+
+          
             
              <div class="form-control">
              <button class="sign_btn <%  if(!forSignUp) {  %>logg_in<% } %>" >login</button>
@@ -62,7 +68,10 @@
 
    
           </form>
+        
         </div>
+        
+
         
 
     
@@ -72,38 +81,25 @@
        <p class="errors"><%= message  %>!</p>
 
        <% } %>
+
+       
      
 
       
-       <% if(!forSignUp) { %>
-
-    
-        <a href="">eeeede</a>
+      
    
-        <% } %>
 
   
     </div>
 
     
+  
 
-    <% if(forSignUp) { %>
-    <div class="worning">
-    <div class="warning_img">   <img src="report_problem_black_24dp.svg" alt="" > </div> 
-    <h3>Read before You fill !</h3>
-
-   
-
-    <p>
-        the following field is responsable for the reseting of your password the data you provide will help you to change the password in case you forget it a good example can be this one "what is my favorite movie " then you give an answer like "spider man" whatever you want you can pick any question you need , but make sure that you don't forget it , and if you forget try to check in your email for every sign up we send the question and answer to the email provided during signing up 
-    </p>
-    </div>
-
-    <% } %>
+    
 
   
 
-
+ 
 
 
  </body>

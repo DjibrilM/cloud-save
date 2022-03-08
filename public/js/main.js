@@ -26,7 +26,7 @@ window.addEventListener('load', ()=>{
             body.style.overflow = 'auto';
             // document.querySelector('a').style.color = '#eee';
         })
-    }, 0);
+    }, -10000);
 
 
 

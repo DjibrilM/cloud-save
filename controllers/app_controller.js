@@ -26,3 +26,14 @@ if(req.session.user.status.length > 5){
     console.log('error');
   })
 }
+
+//live search 
+exports.search =async (req,res,nex)=>{
+const title =req.body.title.trim();
+// console.log(title)
+ let image = await imageModel.find({title:{$regex:new RegExp('^'+title+'.*','i')},creator:req.session.user._id}).exec()
+image = image.slice(0,10)
+// res.status(202).json({message:'image got', data:[image]})
+res.send(image);
+}
+

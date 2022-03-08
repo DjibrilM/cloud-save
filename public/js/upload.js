@@ -9,7 +9,12 @@ const upload_model = document.querySelector('.upload_box');
 const loading_model  = document.querySelector('.loading_backdrop')
 const scrolls = document.querySelector('.scroll')
 const imageConteiner = document.querySelector('.image_container__')
-const not_file_img = document.querySelector('.no__lists')
+const uploadFaildModel = document.querySelector('.uploading_error')
+const hideUploadFaildModel = document.querySelector('.back_link')
+const EmptyList = document.querySelector('.empty_list');
+const no_lists = document.querySelector('.no__lists');
+const deleteWarning = document.querySelector('.worning');
+const WarningBackdrop = document.querySelector('.WrningBack_drop')
 const bodyEl = document.body
 uploadBtn.disabled = true
 
@@ -18,8 +23,6 @@ function defaultBtn(){
     imageInput.click()
     }
     file_picker.addEventListener('click',defaultBtn)
-
- 
 
 imageInput.addEventListener("change"
 , function(){
@@ -80,19 +83,22 @@ disableModels()
 })
 
 
-const appendImge = (src)=>{
+const appendImge = (src,id)=>{
 const imageEl = document.createElement('div');
 imageEl.className = 'image_box';
 imageEl.innerHTML = `
-
+           <input type="hidden" value="${id}">
             <img src="/${src}" alt="" class="image_loaded">
-            <div class="drop_box">
+            <div class="drop_box" onclick ="deleFunc(event)">
                 <img src="images/trash-alt.svg" alt="">
             </div>
-`
-imageConteiner.append(imageEl)
-}
 
+`
+    
+
+imageConteiner.append(imageEl)
+const images = imageConteiner.querySelectorAll('.image_box')
+}
 
 //send the data to the server
 const sendImg = ()=>{
@@ -111,18 +117,24 @@ fetch('/post_images',{
 }).then(result=>{
 return result.json()
 }).then(data=>{
-   setTimeout(() => {
-    loading_model.style.display = 'none';   
-   }, 1000);
-   if(not_file_img){
-    console.log(not_file_img);
-    not_file_img.style.display = 'none';
+   if(no_lists){
+    no_lists.remove() 
    }
-   appendImge(data.data.imagepath)
+   if(EmptyList){
+    EmptyList.style.display = 'none';
+   }
+   loading_model.style.display = 'none';
+   appendImge(data.data.imagepath,data.data._id)
    
 })
 .catch(err=>{
+ loading_model.style.display = 'none'; 
+ uploadFaildModel.style.display = 'block'
  console.log(err)
 })
 }
+const hidde = ()=>{ 
+uploadFaildModel.style.display = 'none'
+}
+hideUploadFaildModel.addEventListener('click',hidde)
 uploadBtn.addEventListener('click',sendImg)

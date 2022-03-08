@@ -192,7 +192,7 @@ const image = req.file;
     return res.render('auth/auth.ejs',{
         forSignUp:false,
         pageTitle:'signUp',
-        message:'no such user found! check all the name and password',
+        message:'no such user found! check the email and the name  ',
         oldinPut:{
         firstName:firstName,
         secondName:secondName,
@@ -226,3 +226,6 @@ const image = req.file;
     }) 
    }
  }
+
+
+

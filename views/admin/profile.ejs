@@ -6,11 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><%= userData.firstName  %></title>
     <link rel="stylesheet" href="/css/profile.css">
-   
+    <link rel="stylesheet" href="/css/profile2.css">
+    <script src="/js/profile.js" defer> </script>
 </head>
 <body>
     
-
     <section class="showcase">
         
        <a href="/">
@@ -20,8 +20,23 @@
     </a>
 
     <div class="profile_card"> 
+        
+        <div class="__password_edit">
+        <div class="password_edit">
+            <h3>This action require the user password<img src="/images/exclamation.svg" alt=""></h3>
+            
+            <form action="/edit_profile" method="post">
+                <input type="password" placeholder="Password" name="password">
+                <input type="hidden" value="<%= userData._id   %>" name="id">
+        <button class="Edit Edit1">Edit Account</button>
+             </form>
+        </div>
+     </div>
+        <div class="loaded_profile">
         <div class="profile_img">
-         <img src="/<%= userData.status %>" alt="">
+       <a href="/<%= userData.status %> " target="_blanck">
+           <img src="/<%= userData.status %>" alt="" class="profile_img_img">
+        </a>
         </div>
 
     <div class="profile_data">
@@ -37,7 +52,12 @@
      
     </div>
 
-    <button class="Edit">Edit Account</button>
+    <button class="Edit Edit2">Edit Account</button>
+        </div>
+        
+        <% if(passwordError) { %>
+        <p class="password_error"><strong>incorrect password</strong> restart the process</p>
+        <% } %>
         </div>
 
     </section>

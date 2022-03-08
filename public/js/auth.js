@@ -11,6 +11,7 @@ const image = document.querySelector('.choosed_image')
 const fileInput = document.querySelector('.input_file')
 const customerBtn = document.querySelector('.customerBtn')
 
+
 SignUpBtn.disabled = true
 
 const validation =()=>{
@@ -29,17 +30,7 @@ const validation =()=>{
         SignUpBtn.disabled = true;  
        }
 }
-let focused = false
-const secretQfOcus = ()=>{
-if(focused === false){
-waringBackdrop.classList.add('visible');
-worningModel.classList.add('visible');
-focused = true
-}else
-{
-    return
-}
-}
+
 
  
 
@@ -49,12 +40,10 @@ email.addEventListener('keyup',validation)
 password.addEventListener('keyup',validation)
 secretQuestion.addEventListener('keyup',validation)
 secret_answer.addEventListener('keyup',validation)
-secretQuestion.addEventListener('focus',secretQfOcus)
 waringBackdrop.addEventListener('click',()=>{
     waringBackdrop.classList.remove('visible');
     worningModel.classList.remove('visible');   
 })
-
 
 //render the selected status;
 customerBtn.addEventListener('click',()=>{
@@ -64,7 +53,7 @@ fileInput.addEventListener("change"
 , function(){
    const file = this.files[0];
    if(file){
-    
+   
    const reader = new FileReader();
    reader.onload = function (){
    const result = reader.result;
@@ -74,3 +63,7 @@ fileInput.addEventListener("change"
    reader.readAsDataURL(file)
    }
 })
+
+function authRedirect (){
+alert('hello world')
+}

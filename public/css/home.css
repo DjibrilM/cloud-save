@@ -547,3 +547,158 @@ padding: 2px;
 border: 2px solid #666;
 background-color: rgb(0, 0, 0, 0.5);
 }
+
+/* //error */
+.uploading_error
+{
+width: 100%;
+height: 100vh;
+z-index: 50000;
+background-color: #fff;
+position: fixed;
+}
+
+/* //delete Warning */
+.worning
+ {
+ display: none;
+ width: 100%;
+ height: 380px;
+ background: #fff;
+ z-index: 100;
+ position: fixed;
+bottom: 1px;
+box-shadow: 0 0 3vw rgb(0,0,0, 0.3);
+animation:  sladInFromBottom 0.5s ease;
+ }
+ .warning_img
+{
+width: 50px;
+margin:10px auto;
+}
+.warning_img img
+{
+width: 100%;
+}
+.worning h3
+{
+    text-align: center;
+    color: rgb(238, 20, 20);
+    font-family:sans-serif;
+}
+.back_drop_2
+{
+width: 100%;
+height: 100vh;
+position: fixed;
+z-index: 99;
+top: -1px;
+background-color: rgb(0,0,0,0.7);
+display: none;
+}
+.worning p
+{
+    text-align: center;
+    color: rgb(80, 74, 74);
+    padding: 10px 20px;
+    line-height: 1.5rem;
+    font-family: sans-serif;
+    font-weight: bold;
+}
+@keyframes sladInFromBottom
+{
+    0%{
+        transform: translatey(100%);
+    } 
+
+    100%
+    {
+        transform: translateX(0);
+    }
+
+}
+
+.WrningBack_drop
+{
+z-index: 2;
+display: none;
+width: 100%;
+height: 100vh;
+position: fixed;
+background-color: rgb(0,0,0, 0.5);
+backdrop-filter: blur(15px);
+top: -1px;
+}
+.btns_container
+{
+display: flex;
+align-items: center;
+justify-content: center;
+gap: 30px;
+margin: 50px 0px;
+}
+.btns_container button
+{
+   padding: 15px 30px;
+   cursor: pointer;
+}
+.btns_container button:nth-child(1)
+{
+   background-color: hsl(0, 87%, 53%);
+   color: #fff;
+   font-family: 'ubuntu';
+   border: none;
+}
+.btns_container button:nth-child(2)
+{
+   background-color: rgb(24, 189, 24);
+   color: #fff;
+   font-family: 'ubuntu';
+   border: none;
+}
+
+
+/* //live search  */
+.live_search_box
+{
+width: 100%;
+box-shadow: 0 0 3px rgb(0, 0, 0, 0.3);
+z-index: 50;
+position: relative;
+margin-top: 10px;
+border-radius: 5px;
+background-color: white;
+padding: 20px;
+gap: 10px;
+display: none;
+}
+.live_search_box a
+{
+color: rgb(65, 65, 184) ;
+font-family: sans-serif;
+border-bottom: 1px solid rgb(170, 156, 156, 0.3);
+padding:10px 3px;
+}
+.live_search_box h4
+{
+ color:   rgb(65, 65, 184) ;
+text-align: center; 
+font-family: 'ubuntu thin';
+padding: 10px 0px;
+}
+.live_search_box p
+{
+text-align: center;
+font-family: 'ubuntu thin';
+}
+.close_search_model
+{
+width: 13px;
+cursor: pointer;
+margin: 10px 0px;
+}
+.result-container
+{
+display: flex;
+flex-direction: column;
+}

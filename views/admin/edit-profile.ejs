@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= userData.firstName  %></title>
+    <link rel="stylesheet" href="/css/profile.css">
+    <script src="/js/edit-profile.js" defer> </script>
+    <script src="/js/modify_profile.js" defer> </script>
+</head>
+<body>
+
+
+    <div class="backdrop">
+        <div class="warning">
+            <h3>This page can't page reloaded for some security reasons.  </h3>
+            <p>You will be redirect to the profile page if you try to reload it then you will have to restart all the process ! </p>
+            <img src="/images/report_problem_black_24dp (1).svg" alt="">
+    
+        </div>
+    </div>
+
+
+    
+    <section class="showcase">
+        
+       <a href="/">
+           <div class="back_arrow">
+            <img src="/images/arrow_back_ios_black_24dp.svg" alt="">
+        </div>
+    </a>
+
+    <div class="profile_card"> 
+        <div class="loaded_profile">
+        <div class="profile_img">
+            <div class="image_upload">
+                <input type="file" name="image" id="" class="file_picker img_data" hidden accept="image/*">
+                <img src="/images/camera.svg" alt="">
+            </div>
+           <img src="/<%= userData.status %> " alt="" class="profile_img_img ">
+        </div>
+
+    <div class="profile_data">
+        <div class="profile-contoller">
+            <input type="text" placeholder="first Name:" class="firstName" value="<%= userData.firstName  %>">
+        </div>
+
+        <div class="profile-contoller">
+            <input type="text" placeholder="second Name:" class="secondName" value="<%= userData.secondName %>">
+        </div>
+      
+        <input type="hidden" value="<%= userData._id %>" class="__id">
+        
+        <div class="profile-contoller name">
+            <input type="email" placeholder="email:" class="email" value="<%= userData.email %>">
+            <input type="password" placeholder="password:" class="password" value="<%= userData.password %>">
+        </div>
+     
+    </div>
+
+    <button class="Edit Edit2">Edit Account</button>
+        </div>
+   
+        </div>
+
+    </section>
+
+    
+
+
+
+</body>
+</html> 

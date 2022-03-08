@@ -7,14 +7,36 @@
     <title><%= pageTitle %></title>
     <script src="/js/main.js" defer></script>
     <script src="/js/upload.js" defer></script>
+    <script src="/js/live-search.js" defer></script>
     <link rel="stylesheet" href="css/home.css">
     <link rel="stylesheet" href="css/upload.css">
+    <link rel="stylesheet" href="css/upload_error.css">
 </head>
 <body>
 
-    <div class="scroll">
 
+
+    <section class="uploading_error">
+
+        <h1 class="warning">An error occurs during the <br> uploading of the image please try again 🥺 !</h1>
+        
+
+
+        <div class="image_warning_container ">
+        <img src="images/1644774448610.png" alt="" class="image_warning">
+        </div>
+        
+        <p class="back_link"> <a>Back</a></p>
+        <div class="decoration"></div>
+        <div class="decoration_two"></div>
+    </section>
+
+    <div class="scroll">
     </div>
+
+    
+    <section class="WrningBack_drop">
+    </section>
 
     <section class="backdrop">
     </section>
@@ -97,13 +119,22 @@
          <form action="search_note" method="POST">
              <div class="search-input_container">
             <button> <img src="/images/search_two.svg" alt=""> </button>
-             <input type="text" class="search_input" placeholder="Search A note By It Title " name="search">
+             <input type="text" class="search_input" placeholder="Search An Image By It Title " name="search">
+            </div>
+
+            <div class="live_search_box">
+                <img src="images/close2.svg" alt="" class="close_search_model">
+              <div class="result-container"></div>
+             <!-- <h4>Nothing  Found</h4>
+             <p>make sure that you wrote it well !</p> -->
             </div>
          </form>
      </div>
 
  </header>
 
+
+ <div class="empty_list"></div>
  <% if(data.length < 1) { %>
  
     <div class="no__lists">
@@ -116,6 +147,9 @@
  
   <% } %>
 
+  
+
+
     <section class="image_container__">
 
         <% if(data.length > 0) { %>
@@ -123,9 +157,13 @@
         <% for(const element of data  ) { %>
 
         <div class="image_box">
+            <script>
+                math = Math.random
+            </script>
+            <input type="hidden" value="<%= element._id %>" class="image_inpu_id">
             <img src="/<%= element.imagepath  %>" alt="" class="image_loaded">
-            <div class="drop_box">
-                <img src="images/trash-alt.svg" alt="">
+            <div class="drop_box" onclick ="deleFunc(event)">
+                <img src="images/trash-alt.svg" alt="" >
             </div>
         </div>
 
@@ -136,16 +174,24 @@
 
 
 
-
-
-
-
  <div class="add_btn">
     <img src="/images/plus.svg" alt="">
 </div>
 
 </main>
 
+<div class="worning">
+    <div class="warning_img">   <img src="report_problem_black_24dp.svg" alt="" > </div> 
+<h3>The following image will be delete if you click the delete button, and there is not way to recover it  </h3>
+<div class="btns_container">
+    <button>Delete</button>
+    <button>Cancel</button>
+</div>
+    </div>
 
+
+
+
+<script src="/js/delete_image.js" defer></script>
 </body>
 </html>

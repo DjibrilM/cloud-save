@@ -36,7 +36,7 @@ top: -1px;
 padding-top: 20px;
 position: relative;
 max-width: 500px;
-height: 90vh;
+height: 700px;
 background-color: #ffff;
 margin:2rem auto;
 box-shadow:  0 0 2vw rgb(0,0,0, 0.3);
@@ -141,7 +141,7 @@ max-width: 177px;
 
  .worning
  {
- display: none;
+ display: block;
  width: 100%;
  height: 380px;
  background: #fff;
@@ -247,3 +247,45 @@ position: relative;
 bottom: 1.5rem;
 margin-bottom: 20px;
 }
+
+.authRedirect
+{
+position: absolute;
+bottom: 10%;
+margin: 0px 25%;
+color: #047aed;
+width:50%;
+text-align: center;
+text-decoration: none;
+font-family: 'ubuntu';
+padding: 5px 0px;
+transition: 0.4s ease-in-out;
+}
+
+.authRedirect2
+{
+margin: 0px 25%;
+transition: 0.2s ease-in-out;
+border-radius: 5px;
+position: absolute;
+bottom: 5%;
+color: #047aed;
+width:50%;
+text-align: center;
+text-decoration: none;
+font-family: 'ubuntu';
+padding: 5px 0px;
+}
+.authRedirect:hover
+{
+    background-color: #047aed;
+    color: white;
+}
+.authRedirect2:hover
+{
+    background-color: #047aed;
+    color: white;
+}
+
+
+
