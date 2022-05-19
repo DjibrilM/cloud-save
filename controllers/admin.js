@@ -35,6 +35,7 @@ console.log(image)
    }
    next(err)
  })
+ 
   }
 
   //delete image end point controller 
@@ -45,7 +46,6 @@ exports.deleteImage =async (req,res,next)=>{
  imagesModel.findById({_id:imageId})
  .then(result=>{
   const mongo = require('mongodb')
-  console.log(mongo.ObjectId(result.creator), 'file goten')
   if(mongo.ObjectId(result.creator).toString() !== req.session.user._id.toString()){
     return  res.status(402).json({message:'no authorise',statusCode:402})
   }
@@ -114,16 +114,24 @@ res.render('admin/edit-profile.ejs',{
 })
 }
 
-exports.profileReset = (req,res,next)=>{
-  const firstName = req.body.firstsName;
-  const secondName = req.body.secondName;
-  const email = req.body.email;
-  const password = req.body.password;
-  const userId = req.body._id;
-  const image = req.file;
+exports.profileReset = async (req,res,next)=>{
+const image = req.file;
+const FirstName  = req.body.firstName;
+const secondName = req.body.secondName;
+const email = req.body.email;
+const password = req.body.password;
+const userId = req.body._id;
 
-  console.log(image,'reched the middleware')
-  res.status(202).json({message:'no error found'})
+
+
+let User = await userModel.findOne({_id:userId});
+const hashedPassword = await bcycript.hash(password,12);
+console.log(firstName, 'name___')
+User.firstName = FirstName;
+User.secondName = secondName;
+User.email = email;
+User.password = hashedPassword;
+await User.save()
 }
 
 

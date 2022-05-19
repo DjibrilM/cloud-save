@@ -9,13 +9,9 @@ const session = require('express-session');
 const MongoDBStore  = require('connect-mongodb-session')(session)
 
 //change
-
-
-
 const AppRouteres = require('./routes/app_route.js');
 const adminRouters = require('./routes/admin')
 const authRouters = require('./routes/auth')
-
 
 //multer configiration
 const destinationStore = multer.diskStorage({

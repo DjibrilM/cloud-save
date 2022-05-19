@@ -41,6 +41,7 @@ const image = req.file;
  const error = validationResult(req);
  if(!error.isEmpty()){
     return res.render('auth/auth.ejs',{
+        forSignUp:true,
         pageTitle:'signUp',
         message:error.array()[0].msg,
         oldinPut:{
@@ -51,20 +52,22 @@ const image = req.file;
             question:secretQuestion,
             answer:secretAnswer,
             image:image,
-            forSignUp:true
+            
         },
         validationErrors: error.array()
 
     })
 
  }
+ 
 
  const result = await userModel.findOne({email:email})
  if(result){
     return res.render('auth/auth.ejs',{
-        pageTitle:'signUp',
-        message:'user with this email already exist !',
-        oldinPut:{
+           forSignUp:true,
+           pageTitle:'signUp',
+           message:'user with this email already exist !',
+           oldinPut:{
             firstName:firstName,
             secondName:secondName,
             email:email,
@@ -72,7 +75,6 @@ const image = req.file;
             question:secretQuestion,
             answer:secretAnswer,
             image:image,
-            forSignUp:true
         },
         validationErrors: [{param:'email'}]
     })

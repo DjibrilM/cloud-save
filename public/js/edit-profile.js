@@ -55,25 +55,12 @@ alert('hello world')
 }
 
 
-//reset_password-request
-const reset_password = ()=>{
-const form_data = new FormData();
-form_data.append('firstaName',first_input);
-form_data.append('secondName',second_name_input);
-form_data.append('email',email_input);
-form_data.append('password',password_input);
 
-fetch('/set-profile',{
-method:'post',
-body:form_data
-})
-.then(result=>{
-    return result.json()
-}).then(data=>{
-    console.log(data)
-}).catch(err=>{
-    alert(err)
-    console.log(err);
-})
-}
-edit_button.addEventListener('click',reset_password)
+//reset_password-request
+// const resetProfile_ = ()=>{
+// alert('hello world')
+// const imageData = file_picker_input
+// console.log('password',password_input.value);
+// console.log('image data',imageData.files[0]);
+// }
+// edit_button.addEventListener('click',resetProfile_)

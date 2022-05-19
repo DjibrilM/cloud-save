@@ -8,23 +8,21 @@
  const updatingBtn  = document.querySelector('.Edit2')
 
 
-  
-
 //function for each event listener
 const hiddeTheWornigModel = ()=>{
 backdropModel.classList.add('invisible')
 }
 
 const resetProfile = ()=>{
-const prifileImg = image.value
+const prifileImg = image.files[0]
 console.log(prifileImg);
 const formdata = new FormData();
-formdata.append('firstsName',firstName)
+formdata.append('firstName',firstName)
 formdata.append('secondName',secondName)
 formdata.append('email',email)
 formdata.append('password',password)
 formdata.append('_id',userId)
-formdata.append('file',prifileImg)
+formdata.append('image',prifileImg)
 fetch('/profile-reset',{
 method:'post',
 body:formdata
