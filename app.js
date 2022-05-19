@@ -73,8 +73,6 @@ app.use(authRouters);
 
 
 
-//some changes
-
 mongoose.connect(MONGODB_STORE)
 .then(Result=>{
     app.listen(3000)
