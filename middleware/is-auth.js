@@ -6,6 +6,7 @@ exports.isAuth = (req,res,next)=>{
     }
 }
 
+
 exports.isAuth__ = (req,res,next)=>{
     if(req.session.isAth == true){
      return res.redirect('/404')
