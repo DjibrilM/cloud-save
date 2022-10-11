@@ -5,6 +5,7 @@ const {check,body} = require('express-validator/check')
 const isAuth = require('../middleware/is-auth');
 const { route } = require('./app_route');
 
+
 // router.get('/addNote',controllers.getAddNote)
 router.post('/post_images'
 , isAuth.isAuth, controllers.addNote)
