@@ -5,6 +5,7 @@ const fs = require('fs')
 // const notesModel = require('../models/image')
 const {validationResult} = require('express-validator')
 
+
   exports.addNote = (req,res,next)=>{
  const title = req.body.title;
  const image = req.file;
